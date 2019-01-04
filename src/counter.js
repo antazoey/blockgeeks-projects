@@ -15,21 +15,6 @@ function initContract() {
             "type": "function"
         },
         {
-            "constant": false,
-            "inputs": [],
-            "name": "increment",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "constructor"
-        },
-        {
             "constant": true,
             "inputs": [],
             "name": "getCounter",
@@ -42,27 +27,33 @@ function initContract() {
             "payable": false,
             "stateMutability": "view",
             "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "increment",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "reset",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
         }
     ];
     return new web3.eth.Contract(abi, address);
-}
-
-function printNetwork() {
-    web3.version.getNetwork((err, netId) => {
-        switch (netId) {
-            case "1":
-                console.log('This is mainnet');
-                break;
-            case "2":
-                console.log('This is the deprecated Morden test network.');
-                break;
-            case "3":
-                console.log('This is the ropsten test network.');
-                break;
-            default:
-                console.log(`This is an unknown network ${netId}.`);
-        }
-    });
 }
 
 export const contract = initContract();

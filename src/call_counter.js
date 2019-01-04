@@ -49,10 +49,21 @@ export async function decrementCounter() {
     }
 }
 
-export function reset() {
-    const comp = $('#valcomp');
-    if (comp) {
-        comp.empty();
-        comp.html(0);
+export async function reset() {
+    const methods = contract.methods;
+    const acct = web3.eth.defaultAccount;
+    try {
+        const tx = await methods.reset().send( {from: acct} );
+        console.log(tx);
+        const comp = $('#valcomp');
+        if (comp) {
+            comp.empty();
+            comp.html(0);
+        } else {
+            console.log("error with comp");
+            console.log(comp);
+        }
+    } catch(err) {
+        console.log(err);
     }
 }
