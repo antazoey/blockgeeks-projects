@@ -1,14 +1,19 @@
 import * as Contract from "./call_counter";
 
 function componentTitle() {
+    const bold = document.createElement("strong");
+    const text = document.createTextNode("Interact with the Counter.sol smart contract deployed" +
+        "in Rinkeby test network");
     const element = document.createElement('div');
-    element.innerHTML = "Interact with the Counter.sol smart contract deployed in Rinkeby test network";
+    bold.appendChild(text);
+    element.appendChild(bold);
     return element;
 }
 
 function valueComponent() {
     const element = document.createElement('p');
     element.innerHTML = "...";
+    element.style.color = "blue";
     return element;
 }
 
@@ -39,7 +44,5 @@ export function componentCounter() {
     container.appendChild(inc_btn);
     container.appendChild(dec_btn);
     container.appendChild(reset_btn);
-    container.style.color = "blue";
-    container.style.font =  "Courier";
     return container;
 }

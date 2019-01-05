@@ -3,6 +3,7 @@
 function componentTitle() {
     const element = document.createElement('div');
     element.innerHTML = "Block Explorer for main.net";
+    element.style.marginTop = "10px";
     return element;
 }
 
@@ -10,6 +11,8 @@ function componentTable() {
     const element = document.createElement('table');
     element.id = 'blocks';
     element.style.border = "1px solid black";
+    element.style.marginTop = "10px";
+    element.width = "100%";
     return element;
 }
 
@@ -27,7 +30,7 @@ function componentBlockHash() {
 
 function componentTimestamp () {
     const element = document.createElement('th');
-    element.innerHTML = "Hash";
+    element.innerHTML = "Timestamp";
     return element;
 }
 
