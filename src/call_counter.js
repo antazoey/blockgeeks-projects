@@ -6,7 +6,7 @@ export async function loadCurrentCount(valComp) {
     if (methods) {
         const result = await methods.getCounter().call();
         if (valComp) {
-            valComp.innerHTML = result;
+            valComp.innerHTML = `current value: ${result}`;
         } else {
             console.log("Error with init contract");
         }
@@ -18,7 +18,7 @@ export function addCounter(i) {
     if (comp) {
         let v = parseInt(comp.html(), 10);
         comp.empty();
-        comp.html(v + i);
+        comp.html(`current value: ${v + i}`);
     } else {
         console.log("error with comp");
         console.log(comp);
