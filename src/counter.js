@@ -1,8 +1,15 @@
-import Web3 from "web3"
+import Web3 from "web3";
+
+async function getNetworkId(web3) {
+    const id = await web3.eth.net.getId();
+    console.log(`Network Id: ${id}`);
+    return id === 4;
+}
 
 function initContract() {
     const url = "https://rinkeby.infura.io/v3/f0f5243a226d40e48cfec3e753ee640d";
     const web3 = new Web3(Web3.givenProvider || new Web3.providers.HttpProvider(url));
+    if (getNetworkId(web3) !== 4) { return null }
     let address = "0xd2d424cd70b687a6f2cedd0b1024399c8e8b2dd3";
     const abi = [
         {

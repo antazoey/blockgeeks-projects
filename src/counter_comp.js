@@ -12,7 +12,8 @@ function componentTitle() {
 
 function valueComponent() {
     const element = document.createElement('p');
-    element.innerHTML = "...";
+    element.innerHTML = (Contract.isRinkeby()) ? "..." : "Pleasure choose Rinkeby network to use Counter";
+    console.log(Contract);
     element.style.color = "blue";
     return element;
 }
